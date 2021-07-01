@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "extends": ["eslint:recommended", "google"],
+  "rules": {
+    "semi": "off",
+    "eol-last": 0,
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
+    "require-jsdoc": "off",
+    "quotes": [2, "single"],
+    "linebreak-style": ["error", "windows"]
+  }
+}
