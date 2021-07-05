@@ -1,0 +1,88 @@
+.main {
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    height: $header-height + 25px;
+    @include center-elements;
+    border: 1px solid #e5e5e5;
+  }
+
+  &__title {
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  &__dashboard {
+    height: $dashboard-height;
+    min-height: $dashboard-height;
+    @include center-elements;
+    background: #e5e5e5;
+  }
+
+  &__add {
+    width: $add-item-size;
+    height: $add-item-size;
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    .material-icons {
+      font-size: 50px;
+      @include center-position-transform;
+    }
+    &:hover {
+      box-shadow: 0 0 5px green;
+      cursor: pointer;
+      .material-icons {
+        color: green;
+      }
+    }
+  }
+
+  &__list {
+    padding: 20px;
+  }
+
+  &__record,
+  .list__title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px 30px;
+    font-size: 18px;
+    * {
+      color: black;
+    }
+  }
+  &__record {
+    &:hover {
+      background: #e6f4ea;
+      border-radius: 25px;
+      * {
+        color: green;
+      }
+    }
+    a:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    position: relative;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      background: './favicon.ico';
+    }
+  }
+  .list__title {
+    border-bottom: 2px solid #e5e5e5;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,20 @@
+@mixin btn-icon($color) {
+  transition: all 0.3s ease;
+  &:hover {
+    cursor: pointer;
+    color: $color;
+  }
+}
+
+@mixin center-elements {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin center-position-transform {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
