@@ -1,0 +1,17 @@
+.formula {
+  display: flex;
+  align-items: center;
+  &__icon {
+    padding: 2px 20px;
+    height: 100%;
+    @include center-elements;
+    border-right: 1px solid #e5e5e5;
+  }
+  &__input {
+    padding: 5px 20px;
+    width: 100%;
+    height: 100%;
+    font-size: 15px;
+  }
+  border-bottom: 1px solid #e5e5e5;
+}

@@ -1,0 +1,21 @@
+.toolbar {
+  @include center-elements;
+  height: $toolbar-height;
+  border-top: 1px solid #dadce0;
+  border-bottom: 1px solid #dadce0;
+  &__btns {
+    width: 100%;
+    height: 100%;
+    @include center-elements;
+    .material-icons {
+      @include btn-icon(green);
+      margin: 0 5px;
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
