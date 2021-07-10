@@ -7,7 +7,7 @@
   &__header {
     height: $header-height + 25px;
     @include center-elements;
-    border: 1px solid #e5e5e5;
+    border: 1px solid $header-input-color;
   }
 
   &__title {
@@ -19,7 +19,7 @@
     height: $dashboard-height;
     min-height: $dashboard-height;
     @include center-elements;
-    background: #e5e5e5;
+    background: $header-input-color;
   }
 
   &__add {
@@ -82,7 +82,7 @@
     }
   }
   .list__title {
-    border-bottom: 2px solid #e5e5e5;
+    border-bottom: 2px solid $header-input-color;
     font-weight: bold;
   }
 }

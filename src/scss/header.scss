@@ -19,17 +19,17 @@
     border: 1px solid white;
     padding: 3px 5px;
     &:hover {
-      border: 1px solid #e5e5e5;
+      border: 1px solid $header-input-color;
     }
     &:focus {
-      border: 1px solid #1a73e8;
-      box-shadow: 0 0 5px #1a73e8;
+      border: 1px solid $focus-color;
+      box-shadow: 0 0 5px $focus-color;
     }
   }
 
   &__btns {
     .material-icons {
-      @include btn-icon(darkred);
+      @include btn-icon($header-icons-color);
       margin: 0 5px;
       &:first-child {
         margin-left: 0;

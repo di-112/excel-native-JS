@@ -14,7 +14,8 @@
     "eol-last": 0,
     "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 0 }],
     "require-jsdoc": "off",
-    "quotes": [2, "single"],
-    "linebreak-style": ["error", "windows"]
+    "linebreak-style": ["error", "windows"],
+    "object-curly-spacing": [0, "never"],
+    "max-len": ["warn", { "code": 150 }]
   }
 }
