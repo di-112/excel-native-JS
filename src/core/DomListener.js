@@ -11,11 +11,18 @@ export class DomListener {
     if (!this.listeners) return
     this.listeners.forEach((listener) => {
       const callBack = getCallBackName(listener)
-      if (this[callBack]) this.root.on(listener, this[callBack].bind(this))
+      this[callBack] = this[callBack].bind(this)
+      if (this[callBack]) this.root.on(listener, this[callBack])
     })
   }
 
-  removeDOMListeners() {}
+  removeDOMListeners() {
+    if (!this.listeners) return
+    this.listeners.forEach((listener) => {
+      const callBack = getCallBackName(listener)
+      if (this[callBack]) this.root.off(listener, this[callBack])
+    })
+  }
 }
 
 function getCallBackName(listener) {

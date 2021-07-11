@@ -9,6 +9,10 @@ export class ExcelComponent extends DomListener {
     this.initDOMListeners()
   }
 
+  remove() {
+    this.removeDOMListeners()
+  }
+
   toHTML() {
     return ``
   }

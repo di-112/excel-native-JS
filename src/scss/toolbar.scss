@@ -16,6 +16,11 @@
       &:last-child {
         margin-right: 0;
       }
+      &.active {
+        background: #e6f4ea;
+        border-radius: 5px;
+        color: green;
+      }
     }
   }
 }
