@@ -1,17 +1,17 @@
 .table {
-  width: 100%;
-  max-width: 100%;
   overflow-x: auto;
   .row {
     display: flex;
     &__info,
     &__column,
     &__cell {
+      position: relative;
       min-width: $min-width-cell;
       width: $width-cells;
       @include center-elements;
       text-align: center;
       padding: 6px 4px 5px 3px;
+      flex-shrink: 0;
     }
 
     &__info,
@@ -30,12 +30,10 @@
     &__info {
       min-width: $min-width-cell/2;
       width: $min-width-cell/2;
-      position: relative;
     }
   }
   &__header {
     .row__column {
-      position: relative;
       background: $gray-back;
       border-bottom: 1px solid $gray-border;
       border-right: 1px solid $gray-border;
@@ -54,12 +52,13 @@
     bottom: 0;
     right: 0;
     opacity: 0;
+    z-index: 1000;
     &:hover {
-      opacity: 1;
+      opacity: 1 !important;
     }
   }
   .resize-row {
-    height: 4px;
+    height: $resizer;
     left: 0;
     &:hover {
       cursor: row-resize;
@@ -67,10 +66,15 @@
   }
 
   .resize-col {
-    width: 4px;
+    width: $resizer;
     top: 0;
     &:hover {
       cursor: col-resize;
     }
+  }
+
+  .resize-now {
+    background: #e6f4ea;
+    color: black;
   }
 }

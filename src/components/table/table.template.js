@@ -9,11 +9,11 @@ function toChar(_, index) {
   return String.fromCharCode(CODES.A + index)
 }
 
-function toCol(content) {
+function toCol(content, id) {
   return `
-   <div class="row__column">
+   <div class="row__column" data-type="resizable" data-id="${id}">
    ${content}
-   <div class="resize-col"></div>
+   <div class="resize-col" data-resize="col"></div>
    </div>`
 }
 
@@ -34,8 +34,11 @@ function createRowHeader() {
 
 // functions for create data rows *begin*
 
-function toCell(content) {
-  return `<div class="row__cell" contenteditable="">${content}</div>`
+function toCell(content, id) {
+  return `
+  <div class="row__cell" contenteditable="" data-id="${id}">
+  ${content}
+  </div>`
 }
 
 function createRowCells(number = 1) {
@@ -43,9 +46,9 @@ function createRowCells(number = 1) {
   const cols = new Array(countCols).fill('').map(toCell)
 
   return `
-   <div class="table__row row">
-      <div class="row__info">${number}
-      <div class="resize-row"></div>  
+   <div class="table__row row" data-type="resizable">
+    <div class="row__info" data-row="info">${number}
+      <div class="resize-row" data-resize="row"></div>  
     </div>
       ${cols.join('').trim()}
    </div>

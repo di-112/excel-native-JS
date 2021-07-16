@@ -6,7 +6,7 @@ export class Toolbar extends ExcelComponent {
     return `
       <div class="toolbar__btns">
         <span class="material-icons"> format_align_left </span>
-        <span class="material-icons"> format_align_center </span>
+        <span class="material-icons active"> format_align_center </span>
         <span class="material-icons"> format_align_right </span>
         <span class="material-icons"> format_bold </span>
         <span class="material-icons"> format_italic </span>
