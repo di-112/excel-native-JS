@@ -21,6 +21,49 @@ class Dom {
   on(typeEvent, callback) {
     this.element.addEventListener(typeEvent, callback)
   }
+
+  off(typeEvent, callback) {
+    this.element.removeEventListener(typeEvent, callback)
+  }
+
+  getCords() {
+    return this.element.getBoundingClientRect()
+  }
+
+  getCloseParent(selector) {
+    return $(this.element.closest(selector))
+  }
+
+  findAll(selector) {
+    return this.element.querySelectorAll(selector)
+  }
+
+  get data() {
+    return this.element.dataset
+  }
+
+  css(props) {
+    if (typeof props === 'object') {
+      Object.keys(props).forEach((key) => (this.element.style[key] = props[key]))
+      return this
+    } else {
+      return window.getComputedStyle(this.element)[props]
+    }
+  }
+
+  addClass(className) {
+    this.element.classList.add(className)
+    return this
+  }
+
+  removeClass(className) {
+    this.element.classList.remove(className)
+    return this
+  }
+
+  getFirstChild() {
+    return $(this.element.firstChild)
+  }
 }
 
 export function $(selector) {

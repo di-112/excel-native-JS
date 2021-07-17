@@ -24,6 +24,5 @@ export class Excel {
   render() {
     this.app.append(this.getRoot())
     this.components.forEach((component) => component.init())
-    this.app.html()
   }
 }
