@@ -34,6 +34,10 @@ class Dom {
     return $(this.element.closest(selector))
   }
 
+  find(selector) {
+    return $(this.element.querySelector(selector))
+  }
+
   findAll(selector) {
     return this.element.querySelectorAll(selector)
   }
