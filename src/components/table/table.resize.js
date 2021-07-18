@@ -11,7 +11,7 @@ export function resizeHandler(root, event) {
   let delta
   if (resizeType === 'col') {
     const col = resizer.getCloseParent('[data-type="resizable"]')
-    const cells = root.findAll(`[data-id="${col.data.id}"]`)
+    const cells = root.findAll(`[data-col="${col.data.id}"]`)
     const currentCords = col.getCords()
     col.addClass('resize-now')
     document.onmousemove = (e) => {

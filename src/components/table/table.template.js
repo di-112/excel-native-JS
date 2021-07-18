@@ -34,16 +34,19 @@ function createRowHeader() {
 
 // functions for create data rows *begin*
 
-function toCell(content, id) {
-  return `
-  <div class="row__cell" contenteditable="" data-id="${id}">
-  ${content}
-  </div>`
+function toCell(rowNumber) {
+  return function test(content, id) {
+    return ` 
+    <div class="row__cell" contenteditable="" data-type="cell" data-col="${id}"  data-id="${rowNumber}:${id}">
+    ${content}
+    </div>`
+  }
 }
 
-function createRowCells(number = 1) {
+function createRowCells(index) {
+  const number = index + 1
   const countCols = CODES.Z - CODES.A + 1
-  const cols = new Array(countCols).fill('').map(toCell)
+  const cols = new Array(countCols).fill('').map(toCell(index))
 
   return `
    <div class="table__row row" data-type="resizable">
@@ -60,7 +63,7 @@ function createRowCells(number = 1) {
 export function createTable(countRows = 20) {
   const headerTemplate = createRowHeader().trim()
   let cellsTemplate = []
-  for (let i = 0; i < countRows; i++) cellsTemplate.push(createRowCells(i + 1))
+  for (let i = 0; i < countRows; i++) cellsTemplate.push(createRowCells(i))
   cellsTemplate = cellsTemplate.join('').trim()
   return headerTemplate + cellsTemplate
 }
