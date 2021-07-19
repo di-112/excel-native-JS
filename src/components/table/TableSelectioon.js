@@ -1,24 +1,26 @@
 export class TableSelection {
   constructor() {
     this.selectCells = []
+    this.currentCell = null
   }
 
   select(element) {
     this.clear()
-    this.addElement(element)
+    this.currentCell = element
+    this.selectCells.push(element)
+    element.focus().addClass('selected')
   }
 
-  selectGroup(element) {
-    this.addElement(element)
+  selectGroup(elementArr) {
+    this.clear()
+    elementArr.forEach((element) => {
+      this.selectCells.push(element)
+      element.addClass('selected')
+    })
   }
 
   clear() {
     this.selectCells.forEach((el) => el.removeClass('selected'))
     this.selectCells = []
-  }
-
-  addElement(element) {
-    this.selectCells.push(element)
-    element.addClass('selected')
   }
 }

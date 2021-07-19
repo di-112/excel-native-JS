@@ -18,6 +18,6 @@
     "object-curly-spacing": [0, "never"],
     "max-len": ["warn", { "code": 150 }],
     "no-debugger": "off",
-    "indent": ["error", 2]
+    "indent": "off"
   }
 }

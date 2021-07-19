@@ -26,6 +26,11 @@ class Dom {
     this.element.removeEventListener(typeEvent, callback)
   }
 
+  focus() {
+    this.element.focus()
+    return this
+  }
+
   getCords() {
     return this.element.getBoundingClientRect()
   }
@@ -44,6 +49,20 @@ class Dom {
 
   get data() {
     return this.element.dataset
+  }
+
+  id(parse) {
+    if (!parse) return this.element.dataset.id
+    else {
+      const idArr = this.element.dataset.id.split(':')
+      let [row, col] = idArr
+      row = +row
+      col = +col
+      return {
+        row,
+        col,
+      }
+    }
   }
 
   css(props) {

@@ -8,8 +8,6 @@
       position: relative;
       min-width: $min-width-cell;
       width: $width-cells;
-      @include center-elements;
-      text-align: center;
       padding: 6px 4px 5px 3px;
       flex-shrink: 0;
     }
