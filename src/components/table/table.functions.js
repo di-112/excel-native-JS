@@ -15,10 +15,10 @@ export function selectGroupCells(selection, root) {
   const colRange = getRange(currentCell.id('parse').col, targetCell.id('parse').col)
   const rowRange = getRange(currentCell.id('parse').row, targetCell.id('parse').row)
   const selectedIdArr = rowRange.reduce((accumulator, row) => {
-    colRange.forEach((col) => accumulator.push(`${row}:${col}`))
+    colRange.forEach(col => accumulator.push(`${row}:${col}`))
     return accumulator
   }, [])
-  const selectedCells = selectedIdArr.map((id) => root.find(`[data-id="${id}"]`))
+  const selectedCells = selectedIdArr.map(id => root.find(`[data-id="${id}"]`))
   selection.selectGroup(selectedCells)
 }
 

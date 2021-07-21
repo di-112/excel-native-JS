@@ -14,14 +14,14 @@ export function resizeHandler(root, event) {
     const cells = root.findAll(`[data-col="${col.data.id}"]`)
     const currentCords = col.getCords()
     col.addClass('resize-now')
-    document.onmousemove = (e) => {
+    document.onmousemove = e => {
       delta = e.clientX - currentCords.right
       resizer.css({ right: -delta + 'px' })
     }
-    document.onmouseup = (e) => {
+    document.onmouseup = e => {
       const newValue = currentCords.width + delta
       col.css({ width: newValue + 'px' })
-      cells.forEach((cell) => $(cell).css({ width: newValue + 'px' }))
+      cells.forEach(cell => $(cell).css({ width: newValue + 'px' }))
       document.onmousemove = null
       document.onmouseup = null
       resizer.css({
@@ -36,11 +36,11 @@ export function resizeHandler(root, event) {
     const rowInfo = resizer.getCloseParent('[data-row="info"]')
     rowInfo.addClass('resize-now')
     const currentCords = row.getCords()
-    document.onmousemove = (e) => {
+    document.onmousemove = e => {
       delta = e.clientY - currentCords.bottom
       resizer.css({ bottom: -delta + 'px' })
     }
-    document.onmouseup = (e) => {
+    document.onmouseup = e => {
       document.onmousemove = null
       document.onmouseup = null
       const newValue = currentCords.height + delta

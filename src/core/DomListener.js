@@ -10,7 +10,7 @@ export class DomListener {
 
   initDOMListeners() {
     if (!this.listeners) return
-    this.listeners.forEach((listener) => {
+    this.listeners.forEach(listener => {
       const callBack = getCallBackName(listener)
       if (this[callBack]) {
         this[callBack] = this[callBack].bind(this)
@@ -21,7 +21,7 @@ export class DomListener {
 
   removeDOMListeners() {
     if (!this.listeners) return
-    this.listeners.forEach((listener) => {
+    this.listeners.forEach(listener => {
       const callBack = getCallBackName(listener)
       if (this[callBack]) this.root.off(listener, this[callBack])
     })

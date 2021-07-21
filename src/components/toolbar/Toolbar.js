@@ -1,7 +1,16 @@
 import { ExcelComponent } from '../../core/ExcelComponent'
 
 export class Toolbar extends ExcelComponent {
+  constructor(root, options) {
+    super(root, {
+      name: 'Toolbar',
+      listeners: [],
+      ...options,
+    })
+  }
+
   static className = 'toolbar'
+
   toHTML() {
     return `
       <div class="toolbar__btns">
