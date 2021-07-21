@@ -6,10 +6,11 @@ import { getNextCellId, isCell, isResize, selectGroupCells } from './table.funct
 import { TableSelection } from './TableSelectioon'
 
 export class Table extends ExcelComponent {
-  constructor(root) {
+  constructor(root, options) {
     super(root, {
       name: 'Table',
-      listeners: ['mousedown', 'keydown'],
+      listeners: ['mousedown', 'keydown', 'input'],
+      ...options,
     })
     this.numberRows = 25
     this.numberCols = CODES.Z - CODES.A + 1
@@ -29,6 +30,9 @@ export class Table extends ExcelComponent {
   init() {
     super.init()
     this.selection.select(this.root.find('[data-id="0:0"]'))
+    this.$on('formula:input', text => this.selection.selectCells.forEach(cell => cell.text(text)))
+    this.$on('formula:enter', () => this.selection.currentCell.focus())
+    this.$emit('table:input', this.selection.currentCell.text())
   }
 
   onMousedown(event) {
@@ -47,6 +51,11 @@ export class Table extends ExcelComponent {
       const currentId = currentCell.id('parse')
       const nextId = getNextCellId(currentId, event.key, this.numberRows, this.numberCols)
       this.selection.select(this.root.find(`[data-id="${nextId.row}:${nextId.col}"]`))
+      this.$emit('table:input', this.selection.currentCell.text())
     }
+  }
+
+  onInput(event) {
+    this.$emit('table:input', $(event.target).text())
   }
 }

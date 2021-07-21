@@ -51,6 +51,17 @@ class Dom {
     return this.element.dataset
   }
 
+  text(str) {
+    if (typeof str === 'string') {
+      this.element.textContent = str
+      return this
+    }
+    if (this.element.tagName.toLowerCase() === 'input') {
+      return (this.element.value = str)
+    }
+    return this.element.textContent
+  }
+
   id(parse) {
     if (!parse) return this.element.dataset.id
     else {
@@ -67,7 +78,7 @@ class Dom {
 
   css(props) {
     if (typeof props === 'object') {
-      Object.keys(props).forEach((key) => (this.element.style[key] = props[key]))
+      Object.keys(props).forEach(key => (this.element.style[key] = props[key]))
       return this
     } else {
       return window.getComputedStyle(this.element)[props]
@@ -95,6 +106,6 @@ export function $(selector) {
 
 $.create = (tag, classes) => {
   const element = document.createElement(tag)
-  if (classes) classes.forEach((classItem) => element.classList.add(classItem))
+  if (classes) classes.forEach(classItem => element.classList.add(classItem))
   return $(element)
 }

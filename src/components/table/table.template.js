@@ -35,10 +35,10 @@ function createRowHeader() {
 // functions for create data rows *begin*
 
 function toCell(rowNumber) {
-  return function test(content, id) {
+  return function func(content, id) {
     return ` 
     <div class="row__cell" contenteditable="" data-type="cell" data-col="${id}"  data-id="${rowNumber}:${id}">
-    ${content}
+    ${content}123213
     </div>`
   }
 }
