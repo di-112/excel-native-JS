@@ -19,7 +19,9 @@ export class Table extends ExcelComponent {
   static className = 'table'
 
   toHTML() {
-    return createTable(this.numberRows)
+    const colWidth = this.store.getState().colState
+    const rowHeight = this.store.getState().rowState
+    return createTable(this.numberRows, colWidth, rowHeight)
   }
 
   prepare() {
@@ -35,8 +37,16 @@ export class Table extends ExcelComponent {
     this.$emit('table:input', this.selection.currentCell.text())
   }
 
+  async resizeHandlerAsync(event) {
+    const data = await resizeHandler(this.root, event)
+    const { id, value } = data
+    data.resize === 'col'
+      ? this.$dispatch({ type: 'TABLE_RESIZE_COL', data: { id, value } })
+      : this.$dispatch({ type: 'TABLE_RESIZE_ROW', data: { id, value } })
+  }
+
   onMousedown(event) {
-    if (isResize(event)) resizeHandler(this.root, event)
+    if (isResize(event)) this.resizeHandlerAsync(event)
     if (isCell(event)) {
       if (event.shiftKey) selectGroupCells(this.selection, this.root)
       else this.selection.select($(event.target))

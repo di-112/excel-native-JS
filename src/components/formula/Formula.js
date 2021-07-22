@@ -31,7 +31,7 @@ export class Formula extends ExcelComponent {
   }
 
   onClick() {
-    console.log('onClick is working!')
+    // this.$dispatch({ type: 'TABLE_RESIZE', data: { id: Math.floor(Math.random() * 100), value: 315 } })
   }
 
   onKeydown(event) {

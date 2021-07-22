@@ -27,10 +27,12 @@
     &__info {
       min-width: $min-width-cell/2;
       width: $min-width-cell/2;
+      @include center-elements;
     }
   }
   &__header {
     .row__column {
+      @include center-elements;
       background: $gray-back;
       border-bottom: 1px solid $gray-border;
       border-right: 1px solid $gray-border;

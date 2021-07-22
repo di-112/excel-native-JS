@@ -19,6 +19,7 @@
     "max-len": ["warn", { "code": 150 }],
     "no-debugger": "off",
     "indent": "off",
-    "arrow-parens": ["error", "as-needed"]
+    "arrow-parens": ["error", "as-needed"],
+    "operator-linebreak": ["error", "before"]
   }
 }

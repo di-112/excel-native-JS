@@ -13,3 +13,11 @@ export function getRange(start, end) {
   const range = new Array(length).fill('').map((_, index) => start + index)
   return range
 }
+
+export function storage(key, data = null) {
+  if (!data) {
+    return JSON.parse(localStorage.getItem(key)) || {}
+  } else {
+    localStorage.setItem(key, JSON.stringify(data))
+  }
+}

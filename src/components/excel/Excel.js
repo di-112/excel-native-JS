@@ -2,15 +2,16 @@ import { $ } from '../../core/dom'
 import { Emmitter } from '../../core/Emitter'
 
 export class Excel {
-  constructor(selector, components) {
+  constructor(selector, options = {}) {
     this.app = $(selector)
-    this.components = components || []
+    this.components = options.components || []
+    this.store = options.store
     this.emitter = new Emmitter()
   }
 
   loadComponentInstance(Component, root) {
     const excelComponentWrap = $.create('div', [`excel__${Component.className}`, Component.className])
-    const options = { emitter: this.emitter }
+    const options = { emitter: this.emitter, store: this.store }
     const component = new Component(excelComponentWrap, options)
     excelComponentWrap.html(component.toHTML())
     root.append(excelComponentWrap)
